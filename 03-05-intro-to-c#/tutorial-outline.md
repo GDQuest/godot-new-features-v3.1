@@ -1,0 +1,27 @@
+**Windows Installation**
+- Download Godot Mono Version
+- Download MSBuild
+	- If VS is installed, MSBuild is already installed in your machine
+	- .NET Build Tools
+	- ![enter image description here](https://i.imgur.com/UmPQI4L.png)
+- When attaching new script
+	- C# is available from dropdown menu
+	- Godot's built in script editor shouldn't be used
+		- Options are:
+			- VSCode
+				- Needs extension (like all others text editors I believe)
+			- MonoDevelop
+			- VS
+			- Resharper
+			- Atom
+			- Sublime
+			- Etc..
+		- Change default editor: `Editor Settings > Mono > Editor > External Editor`
+		- After opening a script, it'll open on the selected default editor instead of Godot's
+	- Main differences when developing:
+		- `CamelCase` instead of `snake_case`
+		- Globals are accessed via  `GD.`
+			- i.e. `print()` vs `GD.Print()`
+		- More here: http://docs.godotengine.org/en/3.0/getting_started/scripting/c_sharp/c_sharp_differences.html
+	- _Code along demo_
+	- Direct viewers to > https://docs.godotengine.org/en/3.0/getting_started/step_by_step/your_first_game.html
