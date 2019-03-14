@@ -9,4 +9,5 @@
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 103, 276 )
+snap = true
 
