@@ -1,0 +1,14 @@
+[gd_scene format=2]
+
+[node name="RoofSmallLight" type="CSGBox"]
+transform = Transform( 1, 0, 0, 0, 1, -8.35187e-023, 0, -8.35187e-023, 1, 0, 0, 0 )
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 0, 0, -0.631527 )
+light_color = Color( 0.32549, 0.627451, 0.717647, 1 )
+spot_range = 21.8083
+spot_angle = 24.3882
+
+[node name="OmniLight" type="OmniLight" parent="."]
+light_color = Color( 0.32549, 0.627451, 0.717647, 1 )
+

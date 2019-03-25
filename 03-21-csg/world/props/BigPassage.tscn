@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://world/base_material.tres" type="Material" id=1]
+
+[node name="BigPassage" type="CSGBox"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 5, 13.5 )
+width = 25.0
+height = 18.0
+material = ExtResource( 1 )
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -12, 9, 0 )
+operation = 2
+width = 5.0
+height = 3.0
+depth = 2.5
+material = ExtResource( 1 )
+
+[node name="CSGBox2" type="CSGBox" parent="."]
+transform = Transform( 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 12, 9, 0 )
+operation = 2
+width = 5.0
+height = 3.0
+depth = 2.5
+material = ExtResource( 1 )
+
+[node name="CSGCombiner" type="CSGCombiner" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+operation = 2
+
+[node name="CSGBox" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+width = 20.0
+height = 15.0
+depth = 3.0
+material = ExtResource( 1 )
+
+[node name="CSGBox3" type="CSGBox" parent="CSGCombiner/CSGBox"]
+transform = Transform( 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -10, 7, 0 )
+operation = 2
+width = 5.0
+height = 3.0
+depth = 2.5
+material = ExtResource( 1 )
+
+[node name="CSGBox4" type="CSGBox" parent="CSGCombiner/CSGBox"]
+transform = Transform( 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 10, 7, 0 )
+operation = 2
+width = 5.0
+height = 3.0
+depth = 2.5
+material = ExtResource( 1 )
+

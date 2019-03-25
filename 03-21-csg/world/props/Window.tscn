@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://world/base_material.tres" type="Material" id=1]
+
+[node name="Window" type="CSGBox"]
+operation = 2
+width = 4.0
+height = 3.52641
+depth = 9.65818
+material = ExtResource( 1 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5 )
+radius = 2.0
+height = 2.0
+
+[node name="OmniLight" type="OmniLight" parent="CSGCylinder"]
+light_color = Color( 0.325684, 0.626625, 0.71875, 1 )
+
+[node name="CSGCylinder2" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5 )
+radius = 2.0
+height = 2.0
+
+[node name="OmniLight2" type="OmniLight" parent="CSGCylinder2"]
+light_color = Color( 0.32549, 0.627451, 0.717647, 1 )
+
