@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="Curve3D" id=3]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.190759, 0, -0.087642, 0, -2.92198, 6.10693, 0, 2.92198, -6.10693, -0.0449219, 2.47045, -13.2265, 0, 0, 0, 0, 0, 0, 0.677002, 4.89569, -29.2097 ),
+"tilts": PoolRealArray( 0, 0, 0 )
+}
+up_vector_enabled = false
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.662745, 0.709804, 0.756863, 1 )
+metallic_specular = 1.0
+ao_enabled = true
+ao_light_affect = 1.0
+ao_on_uv2 = false
+ao_texture_channel = 0
+
+[node name="Bridge" type="Spatial"]
+
+[node name="Path" type="Path" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0630865 )
+curve = SubResource( 3 )
+
+[node name="CSGPolygon" type="CSGPolygon" parent="Path"]
+use_collision = true
+invert_faces = true
+polygon = PoolVector2Array( -6, 0, -6, 1, 6, 1, 6, 0 )
+mode = 2
+path_node = NodePath("..")
+path_interval = 1.0
+path_rotation = 1
+path_local = false
+path_continuous_u = false
+path_joined = false
+material = SubResource( 2 )
+

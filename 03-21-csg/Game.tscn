@@ -1,0 +1,135 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://world/base_material.tres" type="Material" id=1]
+[ext_resource path="res://world/props/RoofSmallLight.tscn" type="PackedScene" id=2]
+[ext_resource path="res://world/props/Window.tscn" type="PackedScene" id=3]
+[ext_resource path="res://world/props/BigPassage.tscn" type="PackedScene" id=4]
+[ext_resource path="res://world/props/Bridge.tscn" type="PackedScene" id=5]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=6]
+
+[node name="Game" type="Node"]
+
+[node name="Map" type="Spatial" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+
+[node name="OutterWalls" type="CSGBox" parent="Map"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0 )
+use_collision = true
+width = 100.0
+height = 20.0
+depth = 100.0
+material = ExtResource( 1 )
+
+[node name="Inner" type="CSGBox" parent="Map/OutterWalls"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.03368, 0, 0 )
+operation = 2
+width = 30.0
+height = 18.0
+depth = 95.0
+material = ExtResource( 1 )
+
+[node name="Details" type="CSGCombiner" parent="Map/OutterWalls/Inner"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5857, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="Map/OutterWalls/Inner/Details"]
+height = 17.99
+
+[node name="CSGBox2" type="CSGBox" parent="Map/OutterWalls/Inner/Details"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15 )
+height = 17.99
+depth = 5.0
+
+[node name="CSGTorus" type="CSGTorus" parent="Map/OutterWalls/Inner/Details/CSGBox2"]
+transform = Transform( -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 0, 0, 1, -0.999996, 0, 0 )
+inner_radius = 3.18793
+outer_radius = 6.82668
+
+[node name="CSGBox3" type="CSGBox" parent="Map/OutterWalls/Inner/Details"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30 )
+height = 17.99
+
+[node name="Tunnel" type="CSGCylinder" parent="Map/OutterWalls/Inner"]
+transform = Transform( -4.37114e-008, -1, 4.37114e-008, 0, -4.37114e-008, -1, 1, -4.37114e-008, 1.91069e-015, -26.36, 0.513035, -27.1861 )
+radius = 8.0
+height = 25.0
+material = ExtResource( 1 )
+
+[node name="RoofSmallLight" parent="Map/OutterWalls/Inner/Tunnel" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, -8.35187e-023, 0, -8.35187e-023, 1, -1.52588e-005, -7.13907, -7.01006 )
+
+[node name="RoofSmallLight2" parent="Map/OutterWalls/Inner/Tunnel" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, -8.35187e-023, 0, -8.35187e-023, 1, -1.14441e-005, 5.414, -7.01007 )
+
+[node name="CSGBox" type="CSGBox" parent="Map/OutterWalls/Inner/Tunnel"]
+transform = Transform( 1, 0, 0, 0, 1, -8.35187e-023, 0, -8.35187e-023, 1, 0, 0, -4.09656 )
+operation = 1
+width = 17.7344
+height = 24.4525
+depth = 12.2399
+
+[node name="Window" parent="Map/OutterWalls/Inner/Tunnel" instance=ExtResource( 3 )]
+transform = Transform( 1, -4.37114e-008, 4.37114e-008, -4.37114e-008, -4.37114e-008, 1, -4.37114e-008, -1, -4.37114e-008, -7.5, 0, -3 )
+operation = 0
+
+[node name="Window2" parent="Map/OutterWalls/Inner/Tunnel" instance=ExtResource( 3 )]
+transform = Transform( 1, -4.37114e-008, 4.37114e-008, -4.37114e-008, -4.37114e-008, 1, -4.37114e-008, -1, -4.37114e-008, 7.5, 0, -3 )
+operation = 0
+
+[node name="Intro" type="Spatial" parent="Map/OutterWalls"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -8, 0 )
+
+[node name="Walls" type="CSGBox" parent="Map/OutterWalls/Intro"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 30 )
+use_collision = true
+width = 30.0
+height = 18.0
+depth = 35.0
+material = ExtResource( 1 )
+
+[node name="InnerWalls" type="CSGBox" parent="Map/OutterWalls/Intro/Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
+operation = 2
+width = 25.0
+height = 18.0
+depth = 32.0
+material = ExtResource( 1 )
+
+[node name="Window" parent="Map/OutterWalls/Intro/Walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8983, -3.39792, -1.17424 )
+
+[node name="BigPassage" parent="Map/OutterWalls/Intro" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 13.5 )
+
+[node name="SpotLight" type="SpotLight" parent="Map/OutterWalls/Intro/BigPassage"]
+transform = Transform( 1, 0, 0, 0, -0.766044, 0.642788, 0, -0.642788, -0.766044, 0, 7, 9.53674e-007 )
+light_color = Color( 0.32549, 0.627451, 0.717647, 1 )
+light_energy = 0.5
+spot_range = 29.9717
+
+[node name="Bridge" parent="Map/OutterWalls" instance=ExtResource( 5 )]
+transform = Transform( 0.999589, -0.0080517, 0.0275225, 0.0113968, 0.992262, -0.123634, -0.0263141, 0.123896, 0.991946, 4.25941, -10.0228, 10.501 )
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, -6.37045, 3.82985, 41 )
+
+[node name="Lights" type="Spatial" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 36, 0 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, -0.819152, 0.573576, 0, -0.573576, -0.819152, 0, 0, 0 )
+light_color = Color( 1, 0.894118, 0.694118, 1 )
+light_energy = 0.2
+light_specular = 1.0
+
+[node name="DirectionalLight2" type="DirectionalLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 0.642788, -0.766044, 0, 0.766044, 0.642788, 0, 0, 0 )
+light_color = Color( 1, 0.894118, 0.694118, 1 )
+light_energy = 0.2
+light_specular = 1.0
+
