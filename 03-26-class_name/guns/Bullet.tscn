@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://guns/Bullet.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/bullet.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 16.7841
+
+[node name="Bullet" type="Area2D"]
+script = ExtResource( 1 )
+move_speed = 1000
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+

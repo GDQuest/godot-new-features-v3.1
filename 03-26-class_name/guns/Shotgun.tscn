@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://guns/Gun.tscn" type="PackedScene" id=1]
+[ext_resource path="res://guns/Shotgun.gd" type="Script" id=2]
+[ext_resource path="res://guns/Bullet.tscn" type="PackedScene" id=3]
+
+[node name="Shotgun" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+fire_rate = 2
+bullet = ExtResource( 3 )
+
