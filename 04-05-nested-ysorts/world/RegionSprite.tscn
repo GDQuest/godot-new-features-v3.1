@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/world/medieval_tilesheet.png" type="Texture" id=1]
+
+[node name="RegionSprite" type="Sprite"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 32, 64, 64 )
+
