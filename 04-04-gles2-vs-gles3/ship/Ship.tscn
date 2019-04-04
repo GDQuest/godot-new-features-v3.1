@@ -1,0 +1,106 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/models/spaceCraft1.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://ship/Ship.gd" type="Script" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.411765, 0.839216, 0.74902, 1 )
+metallic = 1.0
+metallic_specular = 1.0
+anisotropy_enabled = true
+anisotropy = 0.0
+ao_enabled = true
+ao_light_affect = 1.0
+ao_on_uv2 = false
+ao_texture_channel = 0
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 1, 0.662745, 0.266667, 1 )
+metallic = 0.8
+metallic_specular = 0.0
+roughness = 0.5
+anisotropy_enabled = true
+anisotropy = 0.0
+ao_enabled = true
+ao_light_affect = 1.0
+ao_on_uv2 = false
+ao_texture_channel = 0
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.235294, 0.235294, 0.235294, 1 )
+metallic_specular = 0.0
+roughness = 0.0
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 4.53156, 3.4514, 8.12087 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "fly"
+length = 15.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4.2, 8.4, 10 ),
+"transitions": PoolRealArray( 1, 0.267943, 1.31951, 0.466517 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 400 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -2.78839, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=8]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+angular_velocity = 0.0
+linear_accel = 8.91
+scale_curve = SubResource( 7 )
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_color = Color( 0, 0.87451, 0.917647, 1 )
+
+[sub_resource type="CubeMesh" id=10]
+material = SubResource( 9 )
+
+[node name="Ship" type="MeshInstance"]
+mesh = ExtResource( 1 )
+material/0 = SubResource( 1 )
+material/1 = SubResource( 2 )
+material/2 = SubResource( 3 )
+script = ExtResource( 2 )
+
+[node name="EngineLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 8 )
+light_color = Color( 0.501961, 0.92549, 0.980392, 1 )
+light_energy = 3.42
+omni_range = 8.85507
+
+[node name="Area" type="Area" parent="."]
+editor/display_folded = true
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "fly"
+anims/fly = SubResource( 5 )
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 6 )
+amount = 25
+lifetime = 1.5
+preprocess = 25.0
+process_material = SubResource( 8 )
+draw_pass_1 = SubResource( 10 )
+

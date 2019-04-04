@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://camera/FollowerCamera.gd" type="Script" id=1]
+[ext_resource path="res://ship/Ship.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Map.gd" type="Script" id=3]
+[ext_resource path="res://elements/Ring.tscn" type="PackedScene" id=4]
+
+[node name="Game" type="Node"]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, -1.4013e-45, 0, 0.892586, 0.450878, 1.4013e-45, -0.450878, 0.892586, 0, 13.997, 31.596 )
+far = 750.0
+script = ExtResource( 1 )
+
+[node name="Ship" parent="Camera" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 1.4013e-45, 0, 0.892586, -0.450877, -1.4013e-45, 0.450877, 0.892586, -3.92364e-44, -4.51404, -33.1971 )
+move_speed = 10.0
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.325051, 0.945696, 0, -0.945696, -0.325051, 9.61228, 12.234, -6.96616 )
+spot_range = 38.4268
+spot_angle = 64.6875
+
+[node name="Map" type="Spatial" parent="."]
+script = ExtResource( 3 )
+initial_rings = 10
+interval = 25.0
+
+[node name="Ring" parent="Map" instance=ExtResource( 4 )]
+random_colors = false
+rotate = false
+
