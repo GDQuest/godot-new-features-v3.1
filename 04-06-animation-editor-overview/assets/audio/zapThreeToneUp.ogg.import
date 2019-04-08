@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/zapThreeToneUp.ogg-9fc9b5cea622f0578693c63e0485761b.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/zapThreeToneUp.ogg"
+dest_files=[ "res://.import/zapThreeToneUp.ogg-9fc9b5cea622f0578693c63e0485761b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

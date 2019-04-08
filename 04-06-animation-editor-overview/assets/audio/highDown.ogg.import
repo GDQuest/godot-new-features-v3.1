@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/highDown.ogg-3090dc066c31e1e10260994c4c99fc17.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/highDown.ogg"
+dest_files=[ "res://.import/highDown.ogg-3090dc066c31e1e10260994c4c99fc17.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

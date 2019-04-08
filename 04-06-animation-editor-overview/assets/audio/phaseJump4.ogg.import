@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/phaseJump4.ogg-4913bc800ccac012573639314c964ffe.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/phaseJump4.ogg"
+dest_files=[ "res://.import/phaseJump4.ogg-4913bc800ccac012573639314c964ffe.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
